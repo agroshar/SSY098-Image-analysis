@@ -7,6 +7,6 @@ test_image = im2double(raw_image); % Convert to double
 position = [1290, 950];
 radius = 50;
 
-desc = gradient_descriptor(test_image, position, radius);
-%region_centres = place_regions(centre, radius);
-%plot_squares(test_image, region_centres, radius)
+%desc = gradient_descriptor(test_image, position, radius);
+region_centres = place_regions(position, radius);
+plot_squares(test_image, region_centres, radius)

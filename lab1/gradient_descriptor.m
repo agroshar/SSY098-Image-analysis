@@ -1,7 +1,7 @@
 function desc = gradient_descriptor(image, position, radius)
     %UNTITLED4 Summary of this function goes here
     %   Detailed explanation goes here
-    std = radius;
+    std = radius * 0.5;
     
     [grad_x, grad_y] = gaussian_gradients(image, std);
     
