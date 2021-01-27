@@ -4,12 +4,12 @@ function region_centres = place_regions(centre, radius)
 x = centre(1);
 y = centre(2);
 
-offsetX = 4;
-offsetY = 1;
+offsetX = round(radius/10);
+offsetY = round(radius/10);
 
 region_centres = zeros(2, 9);
 
-if (x > radius && y > radius)
+if (x > 2* radius - offsetX && y > 2* radius - offsetY)
     region_centres(:, 1) = [x - 2*radius + offsetX, y];
     region_centres(:, 2) = [x - 2*radius + offsetX, y - 2*radius + offsetY];
     region_centres(:, 3) = [x - 2*radius + offsetX, y + 2*radius - offsetY];
