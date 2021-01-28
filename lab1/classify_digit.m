@@ -16,6 +16,6 @@ function label = classify_digit(digit_image, digits_training)
         end
     end
     
-    disp(['I am label ' num2str(label)])
+    disp(['Classified as ' num2str(label)])
 end
 
