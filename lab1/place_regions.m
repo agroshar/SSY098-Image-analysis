@@ -1,15 +1,15 @@
 function region_centres = place_regions(centre, radius)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
-x = centre(1);
+%place_regions calculates midpoints for 9 regions with overlapping edges
+x = centre(1); %extract x and y
 y = centre(2);
 
-offsetX = round(radius/10);
+offsetX = round(radius/10); %calculate offset / overlap
 offsetY = round(radius/10);
 
-region_centres = zeros(2, 9);
+region_centres = zeros(2, 9); %init regions
 
-if (x > 2* radius - offsetX && y > 2* radius - offsetY)
+if (x > 2* radius - offsetX && y > 2* radius - offsetY) %check if calculation is possible
+    %Calculate region centres by moving +/-(2*radius - offset) in x and y 
     region_centres(:, 1) = [x - 2*radius + offsetX, y];
     region_centres(:, 2) = [x - 2*radius + offsetX, y - 2*radius + offsetY];
     region_centres(:, 3) = [x - 2*radius + offsetX, y + 2*radius - offsetY];

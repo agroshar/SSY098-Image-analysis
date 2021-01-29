@@ -1,16 +1,16 @@
 function label = classify_digit(digit_image, digits_training)
-    %UNTITLED7 Summary of this function goes here
-    %   Detailed explanation goes here
-    compVal = -1;
+    %classify_digit classify a digit to a given set
     
-    position = [19,19];
+    compVal = -1; %init compare value
+    
+    position = [19,19]; % init position and radius
     radius = 6;
     
-    descriptor = gradient_descriptor(digit_image, position, radius);
+    descriptor = gradient_descriptor(digit_image, position, radius); % get gradient descriptors
     
-    for i = 1: 100
-        cVal = sum(abs(descriptor - digits_training(i).descriptor));
-        if (compVal == -1 || compVal > cVal)
+    for i = 1: size(digits_training, 2) %iterate through all training digits
+        cVal = sum(abs(descriptor - digits_training(i).descriptor)); %calculate comparision value
+        if (compVal == -1 || compVal > cVal) % if new comparision is better than the old one, overite classifier
             compVal = cVal;
             label = digits_training(i).label;
         end

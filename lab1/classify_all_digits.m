@@ -1,16 +1,14 @@
-p = 0;
+percentage = 0; % Init percentage
 
-values = digits_validation;
-
-for i = 1:50
+for i = 1:size(digits_validation, 2) % Iterate over all digits
     
-    disp(['I am digit ' num2str(values(i).label)])
+    disp(['I am digit ' num2str(digits_validation(i).label)]) % display true value
     
-    label = classify_digit(values(i).image, digits_training);
-    if (label == values(i).label)
-        p = p + 1;
+    label = classify_digit(digits_validation(i).image, digits_training); %Classify digit
+    if (label == digits_validation(i).label) % check if classifier and true value are the same
+        percentage = percentage + 1; % Increase value
     end
 end
 
-p = p / 50 * 100;
-disp(['My results were correct by ' num2str(p) '%'])
+percentage = percentage / size(digits_validation, 2) * 100; % Calculate percentage
+disp(['My results were correct by ' num2str(percentage) '%'])
