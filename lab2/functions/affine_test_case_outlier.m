@@ -3,8 +3,8 @@ function [pts, pts_tilde, A_true, t_true] = affine_test_case_outlier(outlier_rat
 %   Detailed explanation goes here
 C = 500;
 
-N = 3;
-O = round(outlier_rate * N);
+N = 300;
+O = round(N / (1-outlier_rate)) - N;
 
 pts = zeros(2, N + O);
 pts_tilde = zeros(2, N + O);
