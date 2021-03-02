@@ -5,7 +5,7 @@ function [U, nbr_inliers] = ransac_triangulation(Ps, us, threshold)
 %set initial k_max
 k_max = size(Ps, 2) * 1000;
 %set initial outlier count
-nbr_inliers = 0;
+nbr_inliers = -1;
 %init probability
 nu = 0.01;
 
